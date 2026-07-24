@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./jobs/dailyROIJob");
 
 const app = require("./app");
 
