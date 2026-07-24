@@ -9,7 +9,7 @@ const Investment = require("../models/Investment");
 const getDashboard = async (req, res) => {
     try {
         // Get logged-in user
-        const user = await User.findById(req.user.id)
+        const user = await User.findById(req.user._id)
             .select(
                 "walletBalance totalROIEarned totalLevelIncomeEarned"
             )

@@ -10,7 +10,8 @@ const authRoutes = require("./routes/authRoutes");
 const investmentRoutes = require("./routes/investmentRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const referralRoutes = require("./routes/referralRoutes");
-
+const roiRoutes = require("./routes/roiRoutes");
+const referralIncomeRoutes = require("./routes/referralIncomeRoutes");
 // Error Middleware
 const {
     notFound,
@@ -57,6 +58,12 @@ app.use("/api/investments", investmentRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 app.use("/api/referrals", referralRoutes);
+app.use("/api/roi", roiRoutes);
+
+app.use(
+    "/api/referral-income",
+    referralIncomeRoutes
+);
 
 /* ----------------------------------
    404 Middleware
