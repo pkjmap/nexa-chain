@@ -4,6 +4,7 @@ const router = express.Router();
 const protect = require("../middleware/authMiddleware");
 const {
     getDashboard,
+    getDashboardChart,
 } = require("../controllers/dashboardController");
 
 /**
@@ -12,5 +13,5 @@ const {
  * @access  Private
  */
 router.get("/", protect, getDashboard);
-
+router.get("/chart", protect, getDashboardChart);
 module.exports = router;

@@ -41,14 +41,16 @@ const Navbar = ({
 
     return (
         <AppBar
-            position="sticky"
-            elevation={2}
+            position="fixed"
+            elevation={1}
+            color="inherit"
             sx={{
-                backgroundColor: "#1976d2",
+                borderBottom: "1px solid #e5e7eb",
+                color: "#111827",
+                zIndex: (theme) => theme.zIndex.drawer + 1,
             }}
         >
             <Toolbar>
-
                 {/* Mobile Drawer Button */}
 
                 <IconButton
@@ -68,15 +70,18 @@ const Navbar = ({
 
                 {/* Logo */}
 
-                <Typography
-                    variant="h6"
-                    sx={{
-                        flexGrow: 1,
-                        fontWeight: "bold",
-                    }}
-                >
-                    Investment Dashboard
+                    <Box sx={{ flexGrow: 1 }}>
+                <Typography variant="h5" fontWeight={700}>
+                    Dashboard
                 </Typography>
+
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                >
+                    Welcome back
+                </Typography>
+            </Box>
 
                 {/* User */}
 

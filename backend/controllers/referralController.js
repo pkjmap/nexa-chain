@@ -68,7 +68,7 @@ const buildReferralTree = async (userId) => {
  */
 const getReferralTree = async (req, res) => {
     try {
-        const user = await User.findById(req.user.id)
+        const user = await User.findById(req.user._id)
             .select("fullName referralCode")
             .lean();
 

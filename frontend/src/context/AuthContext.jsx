@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
         setToken(null);
 
-        navigate("/login");
+            navigate("/login");
     };
 
     return (

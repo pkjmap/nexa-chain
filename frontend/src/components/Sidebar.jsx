@@ -27,26 +27,26 @@ const menuItems = [
         icon: <DashboardIcon />,
         path: "/dashboard",
     },
-    {
-        text: "Investments",
-        icon: <SavingsIcon />,
-        path: "/investments",
-    },
-    {
-        text: "ROI History",
-        icon: <TrendingUpIcon />,
-        path: "/roi-history",
-    },
-    {
-        text: "Referral Income",
-        icon: <GroupIcon />,
-        path: "/referral-income",
-    },
-    {
-        text: "Wallet",
-        icon: <AccountBalanceWalletIcon />,
-        path: "/wallet",
-    },
+    // {
+    //     text: "Investments",
+    //     icon: <SavingsIcon />,
+    //     path: "/investments",
+    // },
+    // {
+    //     text: "ROI History",
+    //     icon: <TrendingUpIcon />,
+    //     path: "/roi-history",
+    // },
+    // {
+    //     text: "Referral Income",
+    //     icon: <GroupIcon />,
+    //     path: "/referral-income",
+    // },
+    // {
+    //     text: "Wallet",
+    //     icon: <AccountBalanceWalletIcon />,
+    //     path: "/wallet",
+    // },
 ];
 
 const Sidebar = ({

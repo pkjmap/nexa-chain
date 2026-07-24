@@ -1,6 +1,6 @@
 const User = require("../models/User");
 const Investment = require("../models/Investment");
-
+const ROIHistory = require("../models/ROIHistory");
 /**
  * @desc Get Dashboard Summary
  * @route GET /api/dashboard
@@ -63,7 +63,54 @@ const getDashboard = async (req, res) => {
         });
     }
 };
+const getDashboardChart = async (req, res) => {
+    try {
+        const fromDate = new Date();
+        fromDate.setDate(fromDate.getDate() - 30);
 
+        const chart = await ROIHistory.aggregate([
+            {
+                $match: {
+                    user: req.user._id,
+                    date: {
+                        $gte: fromDate,
+                    },
+                },
+            },
+            {
+                $group: {
+                    _id: {
+                        $dateToString: {
+                            format: "%d-%m",
+                            date: "$date",
+                        },
+                    },
+                    earnings: {
+                        $sum: "$roiAmount",
+                    },
+                },
+            },
+            {
+                $sort: {
+                    _id: 1,
+                },
+            },
+        ]);
+
+        res.json({
+            success: true,
+            chart,
+        });
+    } catch (error) {
+        console.error(error);
+
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
 module.exports = {
     getDashboard,
+    getDashboardChart,
 };
